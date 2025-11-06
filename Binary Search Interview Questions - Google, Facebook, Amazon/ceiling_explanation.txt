@@ -1,0 +1,125 @@
+──────────────────────────────────────────────
+🔢 BINARY SEARCH — CEILING OF A NUMBER (Java)
+──────────────────────────────────────────────
+
+🎯 Problem Definition
+──────────────────────
+Given a sorted integer array `nums` and an integer `target`,
+find the **smallest element ≥ target** (the "ceiling" of target).
+
+If such an element does not exist, return -1.
+
+
+🧩 Example
+──────────────────────
+nums   = [2, 3, 5, 9, 14, 16, 18]
+target = 15
+
+Ceiling = 16  (the smallest number ≥ 15)
+
+
+⚙️ Java Implementation
+──────────────────────
+public class CeilingOfNumber {
+
+    public static int ceiling(int[] nums, int target) {
+        int start = 0;
+        int end = nums.length - 1;
+
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+
+            if (nums[mid] < target) {
+                // Move right because ceiling must be larger
+                start = mid + 1;
+            } else {
+                // nums[mid] >= target, possible ceiling, move left
+                end = mid - 1;
+            }
+        }
+
+        // After loop:
+        // start → index of smallest element ≥ target
+        // If start == nums.length, ceiling does not exist
+        if (start < nums.length) {
+            return nums[start];
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {2, 3, 5, 9, 14, 16, 18};
+        int target = 15;
+
+        int result = ceiling(nums, target);
+        System.out.println("Ceiling of " + target + " = " + result);
+    }
+}
+💡 Output:
+
+mathematica
+Copy code
+Ceiling of 15 = 16
+🧠 Step-by-Step Explanation
+──────────────────────
+1️⃣ Initialize:
+• start = 0
+• end = nums.length - 1
+
+2️⃣ While (start ≤ end):
+• mid = start + (end - start) / 2
+• If nums[mid] < target → search right half (start = mid + 1)
+• Else → potential ceiling found, search left half (end = mid - 1)
+
+3️⃣ Loop exits when:
+• end < start
+• start now points to the first element ≥ target
+
+4️⃣ Therefore:
+✅ Ceiling = nums[start]
+❌ mid is just the last midpoint, not necessarily the ceiling.
+
+🧮 Example Trace
+──────────────────────
+nums = [2, 3, 5, 9, 14, 16, 18], target = 15
+
+start	end	mid	nums[mid]	Action
+0	6	3	9	start = 4
+4	6	5	16	end = 4
+4	4	4	14	start = 5
+
+Loop ends → start = 5 → nums[start] = 16 → ✅ Ceiling
+
+⚠️ Edge Case
+──────────────────────
+If target > all elements:
+→ start = nums.length
+→ return -1 (no ceiling exists)
+
+📊 Time & Space Complexity
+──────────────────────
+• Time Complexity: O(log n)
+• Space Complexity: O(1)
+
+✅ Summary Table
+──────────────────────
+
+Variable	Meaning
+start	Points to first element ≥ target (ceiling)
+end	Points to last element < target
+mid	Just midpoint for comparison (not final)
+
+🚫 Therefore: always return nums[start], not nums[mid].
+
+🔁 Mirror Concept: Floor of a Number
+──────────────────────
+For the "Floor" (largest element ≤ target):
+• If nums[mid] > target → move left (end = mid - 1)
+• Else → move right (start = mid + 1)
+• Return nums[end]
+──────────────────────────────────────────────
+
+yaml
+Copy code
+
+---
