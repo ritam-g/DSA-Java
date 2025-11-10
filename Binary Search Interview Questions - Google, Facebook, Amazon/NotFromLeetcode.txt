@@ -1,0 +1,11 @@
+ //!SECTION Amazon Question
+
+Given a sorted array which is infinitely long (you do not know its size),
+find the index of a given target element using minimum comparisons.
+
+arr = {10,20,30,40,50};
+target = 40;
+
+// NOTE - sorted → use Binary Search
+// We cannot use length function
+// So start = 0 and end = 1 and keep doubling end → O(log n)
