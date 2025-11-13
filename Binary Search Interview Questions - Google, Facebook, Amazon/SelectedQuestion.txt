@@ -1,0 +1,47 @@
+//NOTE - 🧩 Problem: Find the Rotation Count in a Rotated Sorted Array (PROBLEM NO 1)
+
+A sorted array of distinct integers is rotated at some unknown pivot index.
+For example, the sorted array [0, 1, 2, 4, 5, 6, 7] might become [4, 5, 6, 7, 0, 1, 2] after rotation.
+
+Your task is to find the number of times the sorted array has been rotated.
+Formally, return the index of the smallest element in the array.
+
+✳️ Example 1
+
+Input:
+arr = [15, 18, 2, 3, 6, 12]
+Output:
+2
+
+Explanation:
+The original sorted array [2, 3, 6, 12, 15, 18] was rotated 2 times.
+The smallest element 2 appears at index 2.
+
+✳️ Example 2
+
+Input:
+arr = [7, 9, 11, 12, 5]
+Output:
+4
+
+Explanation:
+The smallest element 5 is at index 4.
+Hence, the array was rotated 4 times.
+
+✳️ Example 3
+
+Input:
+arr = [7, 9, 11, 12, 15]
+Output:
+0
+
+Explanation:
+The array is not rotated at all, so the smallest element 7 is at index 0.
+
+🧠 Constraints
+
+1 <= arr.length <= 10^5
+
+All elements in arr are distinct
+
+arr is a rotated sorted array
