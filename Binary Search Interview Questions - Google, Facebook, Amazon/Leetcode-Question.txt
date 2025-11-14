@@ -154,5 +154,16 @@ Perfect ✅ — here’s the refined **quick cheat sheet** with that key pivot r
 * 🔍 **If target ≥ nums[0] →** binary search left side; else → binary search right side.
 
 
+//REVIEW - 410. Split Array Largest Sum(hard)
+
+Here are 5 lines that explain the entire logic clearly and simply:
+
+1️⃣ Answer always lies between max(nums) and sum(nums) because each subarray must include numbers and cannot exceed total sum.
+2️⃣ We binary-search this range to guess a limit for the maximum allowed subarray sum.
+3️⃣ For each guessed limit, we greedily form subarrays—whenever adding a number exceeds the limit, we start a new group.
+4️⃣ If we need more than k groups, the limit is too small → move right (increase limit).
+5️⃣ If we can split into ≤ k groups, the limit works → move left (try smaller).
+
+
 
 
